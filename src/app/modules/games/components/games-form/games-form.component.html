@@ -1,0 +1,26 @@
+<div class="create-games-container card col-6">
+    <form>
+        <label for="gameName"> Nombre: 
+            <input id="gameName" #gameName type="text" placeholder="Ingrese el nombre">
+        </label>
+        <label for="gamePrice"> Precio: 
+            <input id="gamePrice" #gamePrice type="number" placeholder="Ingrese el precio">
+        </label>
+        <label for="gameImg"> Url Imagen:
+            <input id="gameImg" #gameImg type="text" placeholder="Ingrese la url de la imagen">
+        </label>
+        <label for="gameDesciption">Ingrese requisitos
+            <textarea name="gameDesciption" #gameDesciption id="gameDesciption" cols="30" rows="10"></textarea>
+        </label>
+        <label for="gameGender">Seleccione el genero:</label>
+        <select id="gameGender" #gameGender>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+
+        <ng-content select="[boton]"  ></ng-content>
+
+    </form>
+</div>
