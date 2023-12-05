@@ -6,14 +6,16 @@ import { CreateGenderComponent } from './pages/create-gender/create-gender.compo
 import { GenderComponent } from './pages/gender/gender.component';
 import { EditGenderComponent } from './pages/edit-gender/edit-gender.component';
 import { GenderFormComponent } from './components/gender-form/gender-form.component';
-
+import { GenderListComponent } from './components/gender-list/gender-list.component';
 
 @NgModule({
   declarations: [
     CreateGenderComponent,
     EditGenderComponent,
     GenderComponent,
-    GenderFormComponent
+    GenderListComponent,
+    GenderFormComponent,
+  
   ],
   imports: [
     CommonModule,

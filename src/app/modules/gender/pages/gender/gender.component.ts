@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './gender.component.html',
   styleUrls: ['./gender.component.css']
 })
+
 export class GenderComponent {
 
 }

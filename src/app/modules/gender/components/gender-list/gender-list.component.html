@@ -1,1 +1,18 @@
-<p>gender-list works!</p>
+<div class="title-container">
+    <h2>
+        Editar Generos
+    </h2>
+</div>
+
+<ul *ngIf="genders.length !=0;else noGender">
+    <li *ngFor="let gender of genders">
+        <span routerLink="/gender/{{gender.id}}">
+            {{gender.nombre}}
+        </span>
+    </li>
+</ul>
+
+<ng-template #noGender>
+    <p class="text-center">No se agregaron generos aún.</p>
+    
+</ng-template>

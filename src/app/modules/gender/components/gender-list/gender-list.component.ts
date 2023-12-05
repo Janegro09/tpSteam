@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { GamesService } from 'src/app/services/games.service';
 import { GenderService } from 'src/app/services/gender.service';
 
 interface Gender {
@@ -12,13 +11,13 @@ interface Gender {
 }
 
 @Component({
-  selector: 'app-games-list',
+  selector: 'app-gender-list',
   templateUrl: './gender-list.component.html',
   styleUrls: ['./gender-list.component.css']
 })
 
 
-export class GamesListComponent {
+export class GenderListComponent {
   genders:any = [];  
 
   @Input() titulo:string = "Listado de Generos"
