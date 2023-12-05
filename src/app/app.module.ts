@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './modules/navbar/navbar.component';
 import { HomeComponent } from './modules/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // import { GamesFormComponent } from './modules/games/components/games-form/games-form.component';
 // import { CreateGamesComponent } from './modules/games/pages/create-games/create-games.component';
@@ -31,7 +32,8 @@ import { HomeComponent } from './modules/home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
