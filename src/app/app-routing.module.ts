@@ -9,8 +9,8 @@ import { CreateGenderComponent } from './modules/gender/pages/create-gender/crea
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'games', loadChildren: () => import ('./modules/games/games.module').then(m=> m.GamesModule) },
-  {path:'**', redirectTo:'/home', pathMatch:'full'}
-  // {path:'updateGender', component: UpdateGender}
+  {path:'gender', loadChildren: () => import ('./modules/gender/gender.module').then(m=> m.GenderModule) },
+  {path:'**', redirectTo:'/home', pathMatch:'full'},
 ];
 
 @NgModule({

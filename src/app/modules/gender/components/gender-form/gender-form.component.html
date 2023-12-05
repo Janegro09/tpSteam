@@ -1,1 +1,14 @@
-<p>gender-form works!</p>
+<div class="create-gender-container card col-6">
+    <form>
+        <label for="genderName"> Nombre genero: 
+            <input id="genderName" #genderName type="text" placeholder="Ingrese el nombre">
+        </label>
+
+        <label for="gameAtribute"> Atributo: 
+            <input id="gameAtribute" #gameAtribute type="text" placeholder="Ingrese el atributo">
+        </label>
+
+        <ng-content select="[boton]"  ></ng-content>
+
+    </form>
+</div>

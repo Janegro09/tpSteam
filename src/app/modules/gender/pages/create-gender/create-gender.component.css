@@ -1,0 +1,16 @@
+.title-container{
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+}
+button{
+    margin: 15px auto;
+    height: max-content;
+    background-color: #1976d2;
+    color: #fff;
+    padding: 8px;
+    border:none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}

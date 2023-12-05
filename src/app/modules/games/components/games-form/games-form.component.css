@@ -10,9 +10,12 @@ label{
     width: 100%;
     margin: 10px 0 10px 0;
 }
-input, select{
+input, select,textarea{
     width: 100%;
     border-radius: 5px;
     height: 30px;
     border: 1px solid rgba(0, 0, 0, .15);
+}
+textarea{
+    height: 10rem;
 }

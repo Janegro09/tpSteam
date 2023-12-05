@@ -10,8 +10,12 @@
                 <hr class="my-4">
                 <p>{{encontrado?.genero}}.</p>
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Comprar - ${{encontrado?.precio}}</a>
+                    <a class="btn btn-primary btn-lg" href="/games" role="button">Comprar - ${{encontrado?.precio}}</a>
                 </p>
+                <p class="lead">
+                    <a class="btn btn-success btn-lg" routerLink="/games/{{encontrado?.id}}/updateGames" role="button">Editar</a>
+                </p>
+
             </div>
         </div>
     </div>

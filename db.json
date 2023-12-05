@@ -32,5 +32,16 @@
           "genero":"Tiros, persecusion",
           "requerimientos":""
         }
+      ],
+
+      "gender":[
+        {
+          "name":"Terror",
+          "atributos":["¿es Gore?","¿es 2 jugadores"]
+        },
+        {
+          "name":"Aventura",
+          "atributos":["¿es tiros?","¿es multijugador"]
+        }
       ]
 }

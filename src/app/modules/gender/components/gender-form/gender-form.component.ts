@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './gender-form.component.html',
   styleUrls: ['./gender-form.component.css']
 })
-export class GenderFormComponent {
 
+export class GenderFormComponent {
+  
 }
