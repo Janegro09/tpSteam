@@ -28,7 +28,6 @@ export class GameComponent {
       
       this.games = data;
       this.encontrado = this.games.find((elem: { id: any; }) => elem.id == this.activatedRoute.snapshot.params['id'])
-      console.log(this.games)
     })
   }
 }

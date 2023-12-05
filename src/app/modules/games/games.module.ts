@@ -8,6 +8,7 @@ import { CreateGamesComponent } from './pages/create-games/create-games.componen
 import { UpdateGamesComponent } from './pages/update-games/update-games.component';
 import { GameComponent } from './pages/game/game.component';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http'
   imports: [
     CommonModule,
     GamesRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class GamesModule { }

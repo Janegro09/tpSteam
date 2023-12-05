@@ -12,7 +12,7 @@ export class EditGenderComponent {
   //   console.log(e.target.form.gameName.value)
   // }
 
-  @Input() titulo?:string = "Alta de Generos";
+  @Input() titulo?:string = "Modificar de Generos";
   // titulo:string = "Crear Juego";
   habilitar:boolean = true;
 
