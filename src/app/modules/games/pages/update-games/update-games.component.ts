@@ -1,13 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GamesFormComponent } from '../../components/games-form/games-form.component';
+import { GamesService } from 'src/app/services/games.service';
 
 interface Game {
-  id:number,
-  nombre: string,
-  precio: number,
-  img: string,
-  genero: string,
-  requerimientos:string
+  id: number;
+  nombre: string;
+  precio: number;
+  img: string;
+  genero: string;
+  requerimientos: string;
 }
 
 @Component({
@@ -15,51 +17,78 @@ interface Game {
   templateUrl: './update-games.component.html',
   styleUrls: ['./update-games.component.css']
 })
-export class UpdateGamesComponent {
-  @Input() titulo:string = "Modificar Juego";
 
-  games:Game[]=[];
-  encontrado?:Game;
+export class UpdateGamesComponent implements AfterViewInit {
+  @ViewChild(GamesFormComponent) gamesFormComponent!: GamesFormComponent;
+  @Input() titulo: string = "Modificar Juego";
 
-  constructor(private activatedRoute: ActivatedRoute){
-    
-    this.games = [
-      {
-        id: 1,
-        nombre: "Spiderman",
-        precio: 200,
-        img:"https://image.api.playstation.com/vulcan/ap/rnd/202009/3021/BtsjAgHT9pqHRXtN9FCk7xc8.png",
-        genero:"Aventura",
-        requerimientos:""
-      },
-      {
-        id: 2,
-        nombre: "Spiderman 2",
-        precio: 250,
-        img:"https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png",
-        genero:"Aventura",
-        requerimientos:""
-      },
-      {
-        id: 3,
-        nombre: "warcraft",
-        precio: 220,
-        img:"https://www.mundodeportivo.com/alfabeta/hero/2023/11/warcraft-the-war-within.jpg",
-        genero:"Mundo abierto",
-        requerimientos:""
-      },
-      {
-        id: 4,
-        nombre: "GTA 6",
-        precio: 400,
-        img:"https://img.asmedia.epimg.net/resizer/HRwgz-pDsn6uLd9ynmQlz6xK-0o=/644x362/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/PGBWGIK3MVHUJGK74NN22GNAZ4.jpg",
-        genero:"Tiros, persecusion",
-        requerimientos:""
-      }
-    ]
-
-    this.encontrado = this.games.find(elem => elem.id == this.activatedRoute.snapshot.params['id'])
-
-    console.log(this.encontrado)
+  id: number;
+  encontrado?: Game;
+  constructor(private activatedRoute: ActivatedRoute, private _gameService: GamesService) {
+    this.id = this.activatedRoute.snapshot.params['id'];
   }
+  
+  ngAfterViewInit(): void {
+    this._gameService.getGamesById(this.id).subscribe(data => {
+      this.encontrado = data;
+
+      if (this.gamesFormComponent?.formularioGames) {
+        const formularioGames = this.gamesFormComponent.formularioGames;
+        
+        formularioGames.patchValue({
+          gameName: this.encontrado.nombre,
+          gamePrice: this.encontrado.precio,
+          gameImg: this.encontrado.img,
+          gameDescription: this.encontrado.requerimientos,
+          gameGender: this.encontrado.genero
+        });
+      }
+    });
+  }
+
+
+  get isFormValid():boolean {
+    if (this.gamesFormComponent) {
+      return this.gamesFormComponent.formularioGames.valid
+    } else {
+      return false
+    }
+  }
+  actualizar =() => {
+    const gameValues:Game = {
+      id:this.id,
+      nombre: this.gamesFormComponent.formularioGames.value.gameName || '',
+      precio: this.gamesFormComponent.formularioGames.value.gamePrice || 0,
+      img: this.gamesFormComponent.formularioGames.value.gameImg || '',
+      requerimientos : this.gamesFormComponent.formularioGames.value.gameDescription || '',
+      genero : this.gamesFormComponent.formularioGames.value.gameGender || ''
+
+    }
+
+    this._gameService.putGames(gameValues).subscribe(e => {
+      alert('Acualizado bien')
+      console.log(e)
+      }
+    )
+  }
+
+  // ngOnInit(): void {
+  //   this._gameService.getGamesById(this.id).subscribe(data => {
+  //     this.encontrado = data;
+
+  //     if (this.gamesFormComponent.formularioGames) {
+  //       const formularioGames = this.gamesFormComponent.formularioGames;
+        
+  //       formularioGames.patchValue({
+  //         gameName: this.encontrado.nombre,
+  //         gamePrice: this.encontrado.precio,
+  //         gameImg: this.encontrado.img,
+  //         gameDescription: this.encontrado.requerimientos,
+  //         gameGender: this.encontrado.genero
+  //       });
+  //     }
+  //   });
+  // }
+
+ 
 }

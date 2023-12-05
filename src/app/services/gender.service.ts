@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 interface Gender {
+  map: any; //quickfix
   id:number,
   nombre: string,
   atributos: string[]
@@ -24,5 +25,6 @@ export class GenderService {
   getGenderById(id:number){
     return this.http.get<Gender>('http://localhost:3000/gender/'+id)
   }
+  
 }
   

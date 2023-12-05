@@ -1,22 +1,23 @@
 <div class="container">
     <div class="jumbotron">
-        <h1 class="display-4">{{encontrado?.nombre}}</h1>
-        <div class="row">
-            <div class="col">
-                <img src={{encontrado?.img}}>
-            </div>
-            <div class="col">
-                <p class="lead">{{encontrado?.requerimientos}}</p>
-                <hr class="my-4">
-                <p>{{encontrado?.genero}}.</p>
-                <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="/games" role="button">Comprar - ${{encontrado?.precio}}</a>
-                </p>
-                <p class="lead">
-                    <a class="btn btn-success btn-lg" routerLink="/games/{{encontrado?.id}}/updateGames" role="button">Editar</a>
-                </p>
-
-            </div>
+      <h1 class="display-4">{{encontrado?.nombre}}</h1>
+      <div class="row">
+        <div class="col">
+          <img [src]="encontrado?.img">
         </div>
+        <div class="col">
+          <p class="lead">{{encontrado?.requerimientos}}</p>
+          <hr class="my-4">
+          <p>{{encontrado?.genero}}.</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/games" role="button">Comprar - ${{encontrado?.precio}}</a>
+          </p>
+          <p class="lead">
+            <a class="btn btn-success btn-lg" (click)="editarJuego()" role="button">Editar</a>
+            <a class="btn btn-danger btn-lg" (click)="borrarJuego()" role="button">Borrar</a>
+          </p>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  

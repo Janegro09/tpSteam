@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 interface Game {
   id:number,
@@ -15,17 +16,27 @@ interface Game {
 })
 
 export class GamesService {
+  private apiUrl = 'http://localhost:3000/games';
 
-  constructor(private http:HttpClient) { 
-    
+  constructor(private http: HttpClient) {}
+
+  getGames(): Observable<Game[]> {
+    return this.http.get<Game[]>(this.apiUrl);
   }
 
-  getGames(){
-    return this.http.get<Game>('http://localhost:3000/games')
+  getGamesById(id: number): Observable<Game> {
+    return this.http.get<Game>(`${this.apiUrl}/${id}`);
   }
 
-  getGamesById(id:number){
-    return this.http.get<Game>('http://localhost:3000/games/'+id)
+  postGames(game: Game): Observable<Game> {
+    return this.http.post<Game>(this.apiUrl, game);
+  }
+
+  putGames(game: Game): Observable<Game> {
+    return this.http.put<Game>(`${this.apiUrl}/${game.id}`, game);
+  }
+
+  deleteGames(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
-  

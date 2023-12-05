@@ -4,10 +4,9 @@
     </h2>
 </div>
 <app-games-form>
-    <!-- proyeccion de contenido -->
     <button 
-        (click)="verInfo()"
-        [disabled]="!habilitar"
+        (click)="guardar()"
+        [disabled]="!isFormValid"
         boton 
         class="col-2 flex" 
         type="submit">Guardar</button>

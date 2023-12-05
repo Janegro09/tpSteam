@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GamesService } from 'src/app/services/games.service';
 
 interface Game {
-  id:number,
-  nombre: string,
-  precio: number,
-  img: string,
-  genero: string,
-  requerimientos:string
+  id: number;
+  nombre: string;
+  precio: number;
+  img: string;
+  genero: string;
+  requerimientos: string;
 }
 
 @Component({
@@ -16,21 +16,42 @@ interface Game {
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
+export class GameComponent implements OnInit {
+  games: Game[] = [];
+  encontrado: Game | undefined;
 
-export class GameComponent {
-  games:any = [];
-  encontrado?:Game;
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private gamesService: GamesService) {}
 
-  constructor(private activatedRoute: ActivatedRoute, private gamesService:GamesService){
-
+  ngOnInit(): void {
     this.gamesService.getGames().subscribe(data => {
-      
-      
       this.games = data;
-      this.encontrado = this.games.find((elem: { id: any; }) => elem.id == this.activatedRoute.snapshot.params['id'])
-    })
+      this.encontrado = this.games.find((elem: { id: any }) => elem.id == this.activatedRoute.snapshot.params['id']);
+    });
+  }
+
+  editarJuego() {
+    if (this.encontrado) {
+      this.router.navigate(['/games', this.encontrado.id, 'updateGames']);
+    }
+  }
+
+  borrarJuego() {
+    if (this.encontrado) {
+      if (confirm('¿Estás seguro de que quieres borrar este juego?')) {
+        this.gamesService.deleteGames(this.encontrado.id).subscribe(
+          () => {
+            this.router.navigate(['/games']);
+          },
+          error => {
+            console.error('Error al borrar el juego:', error);
+          }
+        );
+      }
+    }
   }
 }
+
+
 // games:Game[]=[];
 // encontrado?:Game;
 
