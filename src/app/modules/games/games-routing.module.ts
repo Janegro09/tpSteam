@@ -11,7 +11,6 @@ const routes: Routes = [
   {path:'', component: GamesListComponent },
   {path:'createGames', component: CreateGamesComponent},
   {path:':id/updateGames', component: UpdateGamesComponent},
-  // {path:':id/updateGames', component: UpdateGamesComponent},
   {path:':id', component: GameComponent}
 ];
 

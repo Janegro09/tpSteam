@@ -20,7 +20,6 @@ interface Game {
 export class CreateGamesComponent implements OnInit, OnChanges {
   @ViewChild(GamesFormComponent) gamesFormComponent!: GamesFormComponent;
   @Input() titulo?:string = "Alta de Juegos";
-  // titulo:string = "Crear Juego";
   habilitar:boolean = false;
   id = 0
   
@@ -40,7 +39,10 @@ export class CreateGamesComponent implements OnInit, OnChanges {
 
     }
 
-    this._gameService.postGames(gameValues).subscribe(e => console.log(e))
+    this._gameService.postGames(gameValues).subscribe(e => {
+      alert('Agregado bien')
+      console.log(e);
+    })
   }
 
   get isFormValid():boolean {

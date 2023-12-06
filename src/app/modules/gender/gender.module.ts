@@ -7,6 +7,7 @@ import { GenderComponent } from './pages/gender/gender.component';
 import { EditGenderComponent } from './pages/edit-gender/edit-gender.component';
 import { GenderFormComponent } from './components/gender-form/gender-form.component';
 import { GenderListComponent } from './components/gender-list/gender-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GenderListComponent } from './components/gender-list/gender-list.compon
   ],
   imports: [
     CommonModule,
-    GenderRoutingModule
+    GenderRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class GenderModule { }

@@ -1,14 +1,26 @@
-<div class="create-gender-container card col-6">
-    <form>
-        <label for="genderName"> Nombre genero: 
-            <input id="genderName" #genderName type="text" placeholder="Ingrese el nombre">
+<!-- gender-form.component.html -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div formArrayName="genders">
+    <label>Nombre del Género:
+      <input formControlName="name" placeholder="Escribe el nombre del género" required />
+    </label>
+
+    <div *ngFor="let genderGroup of genders.controls; let i = index">
+      <div [formGroupName]="i" class="gender">
+        <label>Nombre del Atributo:
+          <input formControlName="nameAtt" placeholder="Escribe el nombre del género" required />
+        </label>
+        
+        <label>Descripción del Género:
+          <input formControlName="description" placeholder="Escribe la descripción del género"/>        
         </label>
 
-        <label for="gameAtribute"> Atributo: 
-            <input id="gameAtribute" #gameAtribute type="text" placeholder="Ingrese el atributo">
-        </label>
+        <button type="button" (click)="removeGender(i)">Eliminar Género</button>
+      </div>
+    </div>
+  </div>
+  
+  <button type="button" (click)="addGender()">Agregar Género</button>
+  <ng-content select="[boton]"></ng-content>
 
-        <ng-content select="[boton]"  ></ng-content>
-
-    </form>
-</div>
+</form>

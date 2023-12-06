@@ -21,6 +21,7 @@ interface Game {
 export class UpdateGamesComponent implements AfterViewInit {
   @ViewChild(GamesFormComponent) gamesFormComponent!: GamesFormComponent;
   @Input() titulo: string = "Modificar Juego";
+  habilitar:boolean = false;
 
   id: number;
   encontrado?: Game;

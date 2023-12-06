@@ -1,0 +1,9 @@
+/* Agrega estilos CSS para las imágenes de las cards */
+.card-img-top {
+    height: 200px; /* Establece la altura deseada para las imágenes */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área asignada */
+  }
+  .card{
+    height: 30rem;
+    overflow: hidden;
+  }

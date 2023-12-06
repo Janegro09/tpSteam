@@ -2,10 +2,10 @@
   "games": [
     {
       "id": 1,
-      "nombre": "Spiderman tu vieja en sosten",
+      "nombre": "Spiderman",
       "precio": 200,
       "img": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3021/BtsjAgHT9pqHRXtN9FCk7xc8.png",
-      "requerimientos": "test",
+      "requerimientos": "Playstation ",
       "genero": "Aventura"
     },
     {
@@ -33,12 +33,20 @@
       "requerimientos": "tiene pocos"
     },
     {
-      "id": 5,
-      "nombre": "Spiderman tu vieja en sosten",
-      "precio": 0,
-      "img": "https://www.mundodeportivo.com/alfabeta/hero/2023/11/warcraft-the-war-within.jpg",
-      "requerimientos": "test",
-      "genero": "Terror"
+      "id": 6,
+      "nombre": "Zelda Tears Of The Kingdom",
+      "precio": 200,
+      "img": "https://assetsio.reedpopcdn.com/co5vmg.png?width=1920&height=1920&fit=bounds&quality=80&format=jpg&auto=webp",
+      "requerimientos": "Nintendo Switch",
+      "genero": "Aventura"
+    },
+    {
+      "id": 7,
+      "nombre": "Mario Wonder",
+      "precio": 180,
+      "img": "https://pbs.twimg.com/media/F0wpUVCaMAAffPJ.jpg",
+      "requerimientos": "nintendo switch",
+      "genero": "Aventura"
     }
   ],
   "gender": [
@@ -62,7 +70,20 @@
   "misJuegos": [
     {
       "id": 1,
-      "idjuego": 1
+      "idUser": 1,
+      "idJuegos": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "idUser": 2,
+      "idJuegos": [
+        3,
+        2,
+        4
+      ]
     }
   ]
 }
