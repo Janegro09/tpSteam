@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class GenderFormComponent {
   form: FormGroup;
+  isResponsive=true;
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -24,7 +25,7 @@ export class GenderFormComponent {
   // Agrega un nuevo género al FormArray
   addGender() {
     const genderGroup = this.fb.group({
-      nameAtt: ['', Validators.required],
+      name: ['', Validators.required],
       description: ['']
     });
 

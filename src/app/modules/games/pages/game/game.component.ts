@@ -20,7 +20,7 @@ export class GameComponent implements OnInit {
   games: Game[] = [];
   encontrado: Game | undefined;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private gamesService: GamesService) {}
+  constructor(private activatedRoute: ActivatedRoute,private gamesService: GamesService) {}
 
   ngOnInit(): void {
     this.gamesService.getGames().subscribe(data => {
@@ -29,26 +29,6 @@ export class GameComponent implements OnInit {
     });
   }
 
-  editarJuego() {
-    if (this.encontrado) {
-      this.router.navigate(['/games', this.encontrado.id, 'updateGames']);
-    }
-  }
-
-  borrarJuego() {
-    if (this.encontrado) {
-      if (confirm('¿Estás seguro de que quieres borrar este juego?')) {
-        this.gamesService.deleteGames(this.encontrado.id).subscribe(
-          () => {
-            this.router.navigate(['/games']);
-          },
-          error => {
-            console.error('Error al borrar el juego:', error);
-          }
-        );
-      }
-    }
-  }
 }
 
 

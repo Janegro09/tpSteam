@@ -39,3 +39,7 @@ img{
   svg{
     filter: invert(100%);
   }
+
+  a{
+    margin:0 3px;
+  }

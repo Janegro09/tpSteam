@@ -1,21 +1,43 @@
-.create-gender-container{
+.container{
     padding: 10px;
-    margin: 20px auto 20px auto;
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(255,255,255, .4);
+    margin: 0 auto;
+    background-color: rgba(255,255,255, .9);
 }
 label{
     font-weight: bold;
     width: 100%;
     margin: 10px 0 10px 0;
+    
 }
 input, select,textarea{
-    width: 100%;
+    width: 70%;
     border-radius: 5px;
     height: 30px;
     border: 1px solid rgba(0, 0, 0, .15);
 }
 textarea{
     height: 10rem;
+}
+
+button{
+    margin: 15px auto;
+    height: max-content;
+    background-color: #585a5e;
+    color: #fff;
+    padding: 8px;
+    border:none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+svg{
+    filter:invert(100%)
+}
+
+.cajaAtributos{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: center;
 }
