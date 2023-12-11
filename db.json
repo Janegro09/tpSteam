@@ -65,6 +65,15 @@
         "¿es tiros?",
         "¿es multijugador"
       ]
+    },
+    {
+      "id": 3,
+      "nombre": "Puzzle",
+      "atributos": [
+        {
+          "nameAtt": "Pay 2 win?"
+        }
+      ]
     }
   ],
   "misJuegos": [
@@ -72,17 +81,37 @@
       "id": 1,
       "idUser": 1,
       "idJuegos": [
-        1,
-        2
+        {
+          "id": 1,
+          "idGame": 1,
+          "shared": true
+        },
+        {
+          "id": 2,
+          "idGame": 2,
+          "shared": false
+        }
       ]
     },
     {
       "id": 2,
       "idUser": 2,
       "idJuegos": [
-        3,
-        2,
-        4
+        {
+          "id": 1,
+          "idGame": 3,
+          "shared": true
+        },
+        {
+          "id": 2,
+          "idGame": 4,
+          "shared": false
+        },
+        {
+          "id": 2,
+          "idGame": 5,
+          "shared": true
+        }
       ]
     }
   ]

@@ -1,6 +1,14 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { GenderFormComponent } from '../../components/gender-form/gender-form.component';
-import { GamesFormComponent } from 'src/app/modules/games/components/games-form/games-form.component';
+import { GenderService } from 'src/app/services/gender.service';
+
+interface Gender {
+  map: any; //quickfix
+  id:number,
+  nombre: string,
+  atributos: string[]
+}
+
 
 @Component({
   selector: 'app-create-gender',
@@ -8,19 +16,36 @@ import { GamesFormComponent } from 'src/app/modules/games/components/games-form/
   styleUrls: ['./create-gender.component.css']
 })
 export class CreateGenderComponent {
-  @ViewChild(GenderFormComponent) gamesFormComponent!: GamesFormComponent;
-
-  // guardarDatos(e:any){
-  //   e.preventDefault()
-  //   console.log(e.target.form.gameName.value)
-  // }
-
-  @Input() titulo?:string = "Alta de Generos";
-  // titulo:string = "Crear Juego";
+  @ViewChild(GenderFormComponent) genderFormComponent!: GenderFormComponent;
   habilitar:boolean = true;
+  id=0;
+
+    
+    @Input() titulo?:string = "Alta de Generos";
+    // titulo:string = "Crear Juego";
+
+    constructor(private _genderServices: GenderService){
+      this.id = this._genderServices.getGender.length;
+    }
 
   verInfo(){
-    console.log(this.gamesFormComponent)
+    console.log(this.genderFormComponent)
     this.habilitar = false
   }
+  guardar(){
+
+    const genderValues:Gender = {
+      id: this.id,
+      nombre: this.genderFormComponent.genderForm.value.nameGender || '',
+      atributos: this.genderFormComponent.genderForm.value.genders || [],
+      map: undefined
+    }
+
+
+    this._genderServices.postGender(genderValues).subscribe(e => {
+      alert('Agregado bien')
+      console.log(e);
+    })
+  }
+  
 }

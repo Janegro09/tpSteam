@@ -1,18 +1,38 @@
 <div class="title-container">
     <h2>
-        Editar Generos
+        Editar Géneros
     </h2>
 </div>
 
-<ul *ngIf="genders.length !=0;else noGender">
-    <li *ngFor="let gender of genders">
-        <span routerLink="/gender/{{gender.id}}">
-            {{gender.nombre}}
-        </span>
-    </li>
-</ul>
+<table *ngIf="genders.length !== 0; else noGender" class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let gender of genders">
+            <td>{{gender.id}}</td>
+            <td>
+                <span routerLink="/gender/{{gender.id}}">
+                    {{gender.nombre}}
+                </span>
+            </td>
+            <td>
+                <!-- Aquí puedes agregar tus botones de editar o borrar -->
+                <button class="btn btn-warning mx-1">
+                    <span [routerLink]="'/gender/' + gender.id">
+                        Editar
+                    </span>
+                </button>
+                <button class="btn btn-danger mx-1" (click)="borrarGender(gender.id)">Borrar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 <ng-template #noGender>
-    <p class="text-center">No se agregaron generos aún.</p>
-    
+    <p class="text-center">No se han agregado géneros aún.</p>
 </ng-template>

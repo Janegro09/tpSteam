@@ -9,10 +9,10 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 })
 
 export class GenderFormComponent {
-  form: FormGroup;
+  genderForm: FormGroup;
 
   constructor(private fb: FormBuilder, ) {
-    this.form = this.fb.group({
+    this.genderForm = this.fb.group({
       nameGender: ['', Validators.required],
       genders: this.fb.array([]),
     });
@@ -23,7 +23,7 @@ export class GenderFormComponent {
 
   // Getter para obtener el FormArray
   get genders() {
-    return this.form.get('genders') as FormArray;
+    return this.genderForm.get('genders') as FormArray;
   }
 
   // Agrega un nuevo conjunto de atributos al FormArray
@@ -42,12 +42,12 @@ export class GenderFormComponent {
 
   // Maneja el envío del formulario
   onSubmit() {
-    if (this.form.valid) {
+    if (this.genderForm.valid) {
       // Lógica para manejar el envío del formulario
-      console.log(this.form.value);
+      console.log(this.genderForm.value);
     } else {
       // Marcar los campos no válidos o mostrar un mensaje de error
-      this.markAllAsDirty(this.form);
+      this.markAllAsDirty(this.genderForm);
     }
   }
 

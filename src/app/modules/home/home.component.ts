@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   games: any[] = [];
@@ -25,8 +26,14 @@ export class HomeComponent implements OnInit {
       this.userService.getGamesById(1)
     ]).subscribe(([gamesData, myGamesData]) => {
       this.games = gamesData;
-      this.misGames = this.games.filter((game: any) => myGamesData.idJuegos.includes(game.id));      
-      console.log(this.misGames)
+      this.games.forEach((game: any) => {
+        myGamesData.idJuegos.forEach((elem:any) => {
+          if (elem.idGame === game.id) {
+            game.shared = elem.shared
+            this.misGames.push(game)
+          }
+        })
+      });      
     });
   }
   

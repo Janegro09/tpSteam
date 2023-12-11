@@ -7,3 +7,6 @@
     height: 30rem;
     overflow: hidden;
   }
+  svg{
+    filter: invert(100%);
+  }
