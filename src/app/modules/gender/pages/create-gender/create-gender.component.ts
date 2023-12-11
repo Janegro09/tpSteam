@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { GenderFormComponent } from '../../components/gender-form/gender-form.component';
+import { GamesFormComponent } from 'src/app/modules/games/components/games-form/games-form.component';
 
 @Component({
   selector: 'app-create-gender',
@@ -6,6 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./create-gender.component.css']
 })
 export class CreateGenderComponent {
+  @ViewChild(GenderFormComponent) gamesFormComponent!: GamesFormComponent;
 
   // guardarDatos(e:any){
   //   e.preventDefault()
@@ -17,7 +20,7 @@ export class CreateGenderComponent {
   habilitar:boolean = true;
 
   verInfo(){
-    console.log("hola")
+    console.log(this.gamesFormComponent)
     this.habilitar = false
   }
 }

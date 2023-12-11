@@ -1,45 +1,64 @@
 // gender-form.component.ts
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-gender-form',
   templateUrl: './gender-form.component.html',
   styleUrls: ['./gender-form.component.css']
 })
+
 export class GenderFormComponent {
   form: FormGroup;
-  isResponsive=true;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, ) {
     this.form = this.fb.group({
-      genders: this.fb.array([]) // Utilizaremos un FormArray para gestionar los géneros
+      nameGender: ['', Validators.required],
+      genders: this.fb.array([]),
     });
+
+    // Agregar un conjunto de atributos por defecto al inicializar el formulario
+    this.addGender();
   }
 
   // Getter para obtener el FormArray
   get genders() {
-    return this.form.get('genders') as any;
+    return this.form.get('genders') as FormArray;
   }
 
-  // Agrega un nuevo género al FormArray
+  // Agrega un nuevo conjunto de atributos al FormArray
   addGender() {
     const genderGroup = this.fb.group({
-      name: ['', Validators.required],
-      description: ['']
+      nameAtt: ['', Validators.required],
     });
 
     this.genders.push(genderGroup);
   }
 
-  // Elimina un género del FormArray
+  // Elimina un conjunto de atributos del FormArray
   removeGender(index: number) {
     this.genders.removeAt(index);
   }
 
   // Maneja el envío del formulario
   onSubmit() {
-    // Lógica para manejar el envío del formulario
-    console.log(this.form.value);
+    if (this.form.valid) {
+      // Lógica para manejar el envío del formulario
+      console.log(this.form.value);
+    } else {
+      // Marcar los campos no válidos o mostrar un mensaje de error
+      this.markAllAsDirty(this.form);
+    }
+  }
+
+  // Marca todos los controles y subcontroles como sucios (dirty)
+  private markAllAsDirty(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      if (control instanceof FormGroup) {
+        this.markAllAsDirty(control);
+      } else {
+        control.markAsDirty();
+      }
+    });
   }
 }

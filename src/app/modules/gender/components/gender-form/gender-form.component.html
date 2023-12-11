@@ -1,28 +1,31 @@
+<!-- gender-form.component.html -->
 <div class="container">
-
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Nombre del Género:
+      <input formControlName="nameGender" placeholder="Escribe el nombre del género" required />
+    </label>
+
     <div formArrayName="genders" class="border">
-      <label>Nombre del Género:
-      <input formControlName="name" placeholder="Escribe el nombre del género" required />
-      </label>
-      
-      <span *ngFor="let genderGroup of genders.controls; let i = index" class="border cajaAtributos">
-        <span [formGroupName]="i" class="gender">
+      <div *ngFor="let genderGroup of genders.controls; let i = index" class="border cajaAtributos">
+        <div [formGroupName]="i" class="gender">
           <label class="cajaAtributos">Nombre del Atributo:
             <input formControlName="nameAtt" placeholder="Escribe el nombre del género" required />
             <button type="button" (click)="removeGender(i)">
-              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+              </svg>
             </button>
           </label>
-        </span>
-      </span>
+        </div>
+      </div>
     </div>
-  
-  <button type="button" (click)="addGender()">
-    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
-  </button>
-  <ng-content select="[boton]"></ng-content>
-  
-  </form>
 
+    <button type="button" (click)="addGender()">
+      <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+      </svg>
+    </button>
+
+    <ng-content select="[boton]"></ng-content>
+  </form>
 </div>
