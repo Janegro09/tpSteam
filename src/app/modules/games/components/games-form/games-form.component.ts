@@ -59,13 +59,11 @@ export class GamesFormComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.genderService.getGender().subscribe(data => {
       this.generos = data.map((gender: { nombre: string; }) => gender.nombre);
-      console.log(this.generos);
     });
-    console.log("Hola G");
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("cambió");
+
   }
 
   // Esta función te ayudará a verificar si un campo es inválido y fue tocado por el usuario

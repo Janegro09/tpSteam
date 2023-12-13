@@ -32,7 +32,6 @@ export class CreateGenderComponent {
     }
 
   verInfo(){
-    console.log(this.genderFormComponent)
     this.habilitar = false
   }
   guardar(){

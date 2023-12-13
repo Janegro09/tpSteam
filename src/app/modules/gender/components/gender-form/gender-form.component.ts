@@ -23,7 +23,6 @@ export class GenderFormComponent implements OnChanges{
 
   constructor(private fb: FormBuilder, ) {
     
-    console.log(this.datoDelPadre)
     this.genderForm = this.fb.group({
       nameGender: ['', Validators.required],
       genders: this.fb.array([]),

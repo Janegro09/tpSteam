@@ -53,10 +53,10 @@ export class CreateGamesComponent implements OnInit, OnChanges {
     }
   }
   ngOnInit(): void {
-    console.log("Hola 2")
+
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("cambió")
+
   }
 
 

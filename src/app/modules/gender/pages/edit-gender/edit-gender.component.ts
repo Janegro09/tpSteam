@@ -49,7 +49,6 @@ export class EditGenderComponent {
   }
   
   actualizar(){
-    console.log(this,this.genderFormComponent)
     const genderValues:Gender = {
       id: this.id,
       nombre: this.genderFormComponent.genderForm.value.nameGender || '',
@@ -63,8 +62,8 @@ export class EditGenderComponent {
     },(error) => {
       console.log(error)
     })
-  this.habilitar = false
-    console.log("Hola")
+    this.habilitar = false
+
   }
 }
 
