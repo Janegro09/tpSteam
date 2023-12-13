@@ -2,11 +2,14 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { GenderFormComponent } from '../../components/gender-form/gender-form.component';
 import { GenderService } from 'src/app/services/gender.service';
 
+interface Attribute {
+  nameAtt: string;
+}
 interface Gender {
   map: any; //quickfix
-  id:number,
-  nombre: string,
-  atributos: string[]
+  id: number;
+  nombre: string;
+  atributos: Attribute[];
 }
 
 

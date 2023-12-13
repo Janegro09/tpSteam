@@ -3,8 +3,7 @@
        {{titulo}}
     </h2>
 </div>
-<app-gender-form>
-    <!-- proyeccion de contenido -->
+<app-gender-form [datoDelPadre]="datosEnviados">
     <button 
         (click)="verInfo()"
         [disabled]="!habilitar"
@@ -12,4 +11,5 @@
         class="col-2 flex" 
         type="submit">Actualizar
     </button>
+    
 </app-gender-form>

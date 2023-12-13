@@ -21,7 +21,7 @@ export class CreateGamesComponent implements OnInit, OnChanges {
   @ViewChild(GamesFormComponent) gamesFormComponent!: GamesFormComponent;
   @Input() titulo?:string = "Alta de Juegos";
   habilitar:boolean = false;
-  id = 0
+  id:number;
   
   constructor(private _gameService: GamesService){
     this.id = this._gameService.getGames.length;

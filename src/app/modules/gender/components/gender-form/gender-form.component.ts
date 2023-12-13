@@ -1,6 +1,15 @@
 // gender-form.component.ts
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+interface Attribute {
+  nameAtt: string;
+}
+interface Gender {
+  map: any; //quickfix
+  id: number;
+  nombre: string;
+  atributos: Attribute[];
+}
 
 @Component({
   selector: 'app-gender-form',
@@ -8,10 +17,13 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
   styleUrls: ['./gender-form.component.css']
 })
 
-export class GenderFormComponent {
+export class GenderFormComponent implements OnChanges{
   genderForm: FormGroup;
+  @Input() datoDelPadre:any;
 
   constructor(private fb: FormBuilder, ) {
+    
+    console.log(this.datoDelPadre)
     this.genderForm = this.fb.group({
       nameGender: ['', Validators.required],
       genders: this.fb.array([]),
@@ -21,11 +33,26 @@ export class GenderFormComponent {
     this.addGender();
   }
 
+  ngOnChanges(): void {
+    console.log(this.datoDelPadre)
+    if(this.datoDelPadre){
+      this.genderForm.patchValue({
+        nameGender: this.datoDelPadre.nombre,
+      });
+
+      this.datoDelPadre.atributos.forEach((elem: any) => {
+        this.genders.push(this.fb.group({
+          nameAtt: elem.nameAtt
+        }))
+      })
+    }
+  }
+
   // Getter para obtener el FormArray
   get genders() {
     return this.genderForm.get('genders') as FormArray;
   }
-
+  
   // Agrega un nuevo conjunto de atributos al FormArray
   addGender() {
     const genderGroup = this.fb.group({

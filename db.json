@@ -54,24 +54,47 @@
       "id": 1,
       "nombre": "Terror",
       "atributos": [
-        "¿es Gore?",
-        "¿es 2 jugadores"
+        {
+          "nameAtt": "¿es Gore?"
+        },
+        {
+          "nameAtt": "¿es 2 jugadores"
+        }
       ]
     },
     {
       "id": 2,
       "nombre": "Aventura",
       "atributos": [
-        "¿es tiros?",
-        "¿es multijugador"
+        {
+          "nameAtt": "¿es tiro333s?"
+        },
+        {
+          "nameAtt": "¿es multijugador"
+        }
       ]
     },
     {
       "id": 3,
-      "nombre": "Puzzle",
+      "nombre": "CIENCIA FICCION",
       "atributos": [
         {
-          "nameAtt": "Pay 2 win?"
+          "nameAtt": "2 JUGADORES"
+        },
+        {
+          "nameAtt": "TIROS"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "test",
+      "atributos": [
+        {
+          "nameAtt": "122"
+        },
+        {
+          "nameAtt": "asdasd"
         }
       ]
     }

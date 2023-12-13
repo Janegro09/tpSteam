@@ -12,10 +12,14 @@ interface Game {
   genero: string;
   requerimientos: string;
 }
+interface Attribute {
+  nameAtt: string;
+}
 interface Gender {
-  id:number,
-  nombre: string,
-  atributos: string[]
+  map: any; //quickfix
+  id: number;
+  nombre: string;
+  atributos: Attribute[];
 }
 
 @Component({

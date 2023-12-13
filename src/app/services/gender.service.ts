@@ -2,11 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+interface Attribute {
+  nameAtt: string;
+}
 interface Gender {
   map: any; //quickfix
-  id:number,
-  nombre: string,
-  atributos: string[]
+  id: number;
+  nombre: string;
+  atributos: Attribute[];
 }
 
 @Injectable({
@@ -25,7 +28,7 @@ export class GenderService {
   }
 
   getGenderById(id:number){
-    return this.http.get<Gender>(this.apiUrl+id)
+    return this.http.get<Gender>(`${this.apiUrl}/${id}`)
   }
 
   postGender(gender: Gender): Observable<Gender> {

@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     GenderComponent,
     GenderListComponent,
     GenderFormComponent,
-  
+    
   ],
   imports: [
     CommonModule,

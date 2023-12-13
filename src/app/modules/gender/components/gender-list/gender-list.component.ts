@@ -2,15 +2,15 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GenderService } from 'src/app/services/gender.service';
 
-interface Gender {
-  id:number,
-  nombre: string,
-  precio: number,
-  img: string,
-  genero: string,
-  requerimientos:string
+interface Attribute {
+  nameAtt: string;
 }
-
+interface Gender {
+  map: any; //quickfix
+  id: number;
+  nombre: string;
+  atributos: Attribute[];
+}
 @Component({
   selector: 'app-gender-list',
   templateUrl: './gender-list.component.html',
