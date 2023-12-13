@@ -34,7 +34,6 @@ export class GenderFormComponent implements OnChanges{
   }
 
   ngOnChanges(): void {
-    console.log(this.datoDelPadre)
     if(this.datoDelPadre){
       this.genderForm.patchValue({
         nameGender: this.datoDelPadre.nombre,
@@ -42,7 +41,6 @@ export class GenderFormComponent implements OnChanges{
       // Quito el conjunto de atributos por defecto en blanco
       this.removeGender(0)
       this.datoDelPadre.atributos.forEach((elem: any) => {
-        console.log(elem)
         this.genders.push(this.fb.group({
           nameAtt: elem.nameAtt
         }))
@@ -70,15 +68,15 @@ export class GenderFormComponent implements OnChanges{
   }
 
   // Maneja el envío del formulario
-  onSubmit() {
-    if (this.genderForm.valid) {
-      // Lógica para manejar el envío del formulario
-      console.log(this.genderForm.value);
-    } else {
-      // Marcar los campos no válidos o mostrar un mensaje de error
-      this.markAllAsDirty(this.genderForm);
-    }
-  }
+  // onSubmit() {
+  //   if (this.genderForm.valid) {
+  //     // Lógica para manejar el envío del formulario
+  //     console.log(this.genderForm.value);
+  //   } else {
+  //     // Marcar los campos no válidos o mostrar un mensaje de error
+  //     this.markAllAsDirty(this.genderForm);
+  //   }
+  // }
 
   // Marca todos los controles y subcontroles como sucios (dirty)
   private markAllAsDirty(formGroup: FormGroup) {
