@@ -97,6 +97,15 @@
           "nameAtt": "asdasd"
         }
       ]
+    },
+    {
+      "id": 5,
+      "nombre": "test2",
+      "atributos": [
+        {
+          "nameAtt": "test"
+        }
+      ]
     }
   ],
   "misJuegos": [

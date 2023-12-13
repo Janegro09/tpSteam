@@ -35,6 +35,7 @@ export class GenderService {
     return this.http.post<Gender>(this.apiUrl, gender);
   }
 
+  
   putGender(gender: Gender): Observable<Gender> {
     return this.http.put<Gender>(`${this.apiUrl}/${gender.id}`, gender);
   }

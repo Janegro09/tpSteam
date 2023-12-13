@@ -48,8 +48,23 @@ export class EditGenderComponent {
     }
   }
   
-  verInfo(){
-    this.habilitar = false
+  actualizar(){
+    console.log(this,this.genderFormComponent)
+    const genderValues:Gender = {
+      id: this.id,
+      nombre: this.genderFormComponent.genderForm.value.nameGender || '',
+      atributos: this.genderFormComponent.genderForm.value.genders || [],
+      map: undefined
+    }
+  
+    this._genderService.putGender(genderValues).subscribe(e => {
+      alert('Agregado bien')
+      console.log(e);
+    },(error) => {
+      console.log(error)
+    })
+  this.habilitar = false
+    console.log("Hola")
   }
 }
 

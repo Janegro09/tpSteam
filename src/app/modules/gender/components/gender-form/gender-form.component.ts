@@ -39,8 +39,10 @@ export class GenderFormComponent implements OnChanges{
       this.genderForm.patchValue({
         nameGender: this.datoDelPadre.nombre,
       });
-
+      // Quito el conjunto de atributos por defecto en blanco
+      this.removeGender(0)
       this.datoDelPadre.atributos.forEach((elem: any) => {
+        console.log(elem)
         this.genders.push(this.fb.group({
           nameAtt: elem.nameAtt
         }))
