@@ -3,12 +3,15 @@
        {{titulo}}
     </h2>
 </div>
-<app-gender-form>
-    <!-- proyeccion de contenido -->
-    <button 
+<div class="container">
+
+    <app-gender-form>
+        <!-- proyeccion de contenido -->
+        <button 
         (click)="guardar()"
         [disabled]="!habilitar"
         boton 
         class="col-2 flex" 
         type="submit">Guardar</button>
-</app-gender-form>
+    </app-gender-form>
+</div>

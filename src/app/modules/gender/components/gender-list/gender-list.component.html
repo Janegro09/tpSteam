@@ -22,11 +22,11 @@
             </td>
             <td>
                 <!-- Aquí puedes agregar tus botones de editar o borrar -->
+                <span [routerLink]="'/gender/' + gender.id">
                 <button class="btn btn-warning mx-1">
-                    <span [routerLink]="'/gender/' + gender.id">
                         Editar
-                    </span>
-                </button>
+                    </button>
+                </span>
                 <button class="btn btn-danger mx-1" (click)="borrarGender(gender.id)">Borrar</button>
             </td>
         </tr>

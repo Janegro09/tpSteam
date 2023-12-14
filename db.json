@@ -47,14 +47,6 @@
       "img": "https://pbs.twimg.com/media/F0wpUVCaMAAffPJ.jpg",
       "requerimientos": "nintendo switch",
       "genero": "Aventura"
-    },
-    {
-      "id": 8,
-      "nombre": "test",
-      "precio": 333,
-      "img": "https://www.mundodeportivo.com/alfabeta/hero/2023/11/warcraft-the-war-within.jpg",
-      "requerimientos": "test",
-      "genero": "CIENCIA FICCION"
     }
   ],
   "gender": [
@@ -63,7 +55,7 @@
       "nombre": "Terror",
       "atributos": [
         {
-          "nameAtt": "¿es Gore?"
+          "nameAtt": "¿es Gore?22aa"
         },
         {
           "nameAtt": "¿es 2 jugadores"
@@ -94,27 +86,6 @@
         },
         {
           "nameAtt": "TIROS"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "nombre": "test",
-      "atributos": [
-        {
-          "nameAtt": "122"
-        },
-        {
-          "nameAtt": "asdasd"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "nombre": "test2",
-      "atributos": [
-        {
-          "nameAtt": "test"
         }
       ]
     }
