@@ -21,12 +21,18 @@
       </label>
       <label for="gameDescription">Ingrese requisitos
         <textarea name="gameDescription" id="gameDescription" cols="30" rows="10" formControlName="gameDescription"></textarea>
+        <div *ngIf="isInvalidField('gameDescription')" class="text-danger">
+          Ingrese unos requisitos
+        </div>
       </label>
-      <label for="gameGender" >Seleccione el género:</label>
-      <select id="gameGender" formControlName="gameGender" [class.invalid]="isInvalidField('gameGender')">
-
-        <option *ngFor="let genero of generos" [value]="genero">{{ genero }}</option>
-      </select>
+      <label for="gameGender" >Seleccione el género:
+        <select id="gameGender" formControlName="gameGender" [class.invalid]="isInvalidField('gameGender')">
+          <option *ngFor="let genero of generos" [value]="genero">{{ genero }}</option>
+          <div *ngIf="isInvalidField('gameGender')" class="text-danger">
+            Ingrese un genero
+          </div>
+        </select>
+      </label>
   
       <ng-content select="[boton]"></ng-content>
   

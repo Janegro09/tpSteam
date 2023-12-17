@@ -66,7 +66,7 @@ export class GamesFormComponent implements OnInit, OnChanges {
 
   }
 
-  // Esta función te ayudará a verificar si un campo es inválido y fue tocado por el usuario
+  // Verificamos si un campo es inválido y fue tocado por el usuario
   isInvalidField(field: string) {
     const control = this.formularioGames.get(field);
     return control && control.invalid && (control.dirty || control.touched);

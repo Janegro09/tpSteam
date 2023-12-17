@@ -5,6 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `npm install`
+
 Run `ng serve -o`
+
 Run `json-server --watch db.json`
 
